@@ -18,6 +18,10 @@ RUN     apk update && apk upgrade && apk add --update --no-cache \
             openssh \
  &&     rm -f /var/cache/apk/* \
 
+# permissions for tshark
+ &&     chown root:root /usr/bin/dumpcap \
+ &&     chmod +x /usr/bin/dumpcap \
+
 # create ssh folders
  &&     mkdir /root/.ssh/ \
  &&     touch /root/.ssh/known_hosts
