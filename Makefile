@@ -3,6 +3,7 @@
 RM			= rm -f
 RMRF		= rm -rf
 CD			= cd
+CAT			= cat
 MKDIR		= mkdir
 DOCKER		= docker
 DOCKERIMG	= docker image
@@ -21,7 +22,9 @@ NAME		= irc_server
 # DIRECTORIES
 ################################################################################
 SRCS		= ./srcs
+IRCCONF		= ./srcs/requirements/irc/conf
 DATABIND	= /home/twagner/irc
+SSH			= ~/.ssh
 
 # FLAGS
 ################################################################################
@@ -39,12 +42,16 @@ ADDRESS		= 127.0.0.1
 ################################################################################
 $(NAME):	
 			sudo $(MKDIR) $(DATABIND)
+			sudo $(CAT) $(SSH)/id_rsa > $(IRCCONF)/id_rsa
+			sudo $(CAT) $(SSH)/id_rsa.pub > $(IRCCONF)/id_rsa.pub
 			$(CD) $(SRCS) && $(DCOMPOSE) $(FLAGENV) $(ENVFILE) $(UP)
 
 all:		$(NAME)
 
 clean:
 			$(CD) $(SRCS) && $(DCOMPOSE) $(DOWN) $(REMOVEIMGS)
+			$(RMRF) $(IRCCONF)/id_rsa
+			$(RMRF) $(IRCCONF)/id_rsa.pub
 
 fclean:		clean	
 			$(DOCKER) system prune --all --force --volumes
