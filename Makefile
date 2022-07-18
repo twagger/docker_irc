@@ -21,7 +21,7 @@ NAME		= irc_server
 # DIRECTORIES
 ################################################################################
 SRCS		= ./srcs
-DATABIND	= /mnt/nfs/homes/twagner/sgoinfre/data
+DATABIND	= /home/twagner/irc
 
 # FLAGS
 ################################################################################
@@ -38,8 +38,7 @@ ADDRESS		= 127.0.0.1
 # RULES
 ################################################################################
 $(NAME):	
-			$(MKDIR) $(DATABIND)
-			$(MKDIR) $(DATABIND)/irc
+			sudo $(MKDIR) $(DATABIND)
 			$(CD) $(SRCS) && $(DCOMPOSE) $(FLAGENV) $(ENVFILE) $(UP)
 
 all:		$(NAME)

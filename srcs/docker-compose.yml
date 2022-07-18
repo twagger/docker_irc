@@ -11,7 +11,7 @@ services:
     container_name: irc
     restart: always
     ports: ['6667:6667']
-    volumes: ['irc_data:/var/irc']
+    volumes: ['irc_data:/irc']
     networks: ['irc_network']
 
 networks:
@@ -22,7 +22,7 @@ volumes:
   irc_data:
     driver: local
     driver_opts:
-      device: /mnt/nfs/homes/twagner/sgoinfre/data/irc
+      device: /home/twagner/irc
       type: volume
       o: bind
 
