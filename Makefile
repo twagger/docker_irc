@@ -23,8 +23,8 @@ NAME		= irc_server
 ################################################################################
 SRCS		= ./srcs
 IRCCONF		= ./srcs/requirements/irc/conf
-DATABIND	= /home/twagner/irc
-SSH			= ~/.ssh
+DATABIND	= ~/irc
+SSH		= ~/.ssh
 
 # FLAGS
 ################################################################################
