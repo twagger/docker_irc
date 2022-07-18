@@ -22,7 +22,7 @@ volumes:
   irc_data:
     driver: local
     driver_opts:
-      device: /home/twagner/irc
+      device: ${HOME}
       type: volume
       o: bind
 
