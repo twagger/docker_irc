@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  
+  irc:
+    image: irc:${TAG}
+    build: 
+      context: ./requirements/irc
+      args:
+        - REPO=${REPO}
+    container_name: irc
+    restart: always
+    ports: ['6667:6667']
+    volumes: ['irc_data:/var/irc']
+    networks: ['irc_network']
+
+networks:
+  irc_network:
+    name: irc_network
+
+volumes:
+  irc_data:
+    driver: local
+    driver_opts:
+      device: /mnt/nfs/homes/twagner/sgoinfre/data/irc
+      type: volume
+      o: bind
+
