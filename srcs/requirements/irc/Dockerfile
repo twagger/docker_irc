@@ -14,7 +14,7 @@ RUN     apk update && apk upgrade && apk add --update --no-cache \
             build-base \
             make \
             git \
-            wireshark \
+            tshark \
             openssh \
  &&     rm -f /var/cache/apk/* \
 
