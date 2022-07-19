@@ -42,6 +42,7 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
 # clone server project from github
  &&     cd /irc \
  &&     git clone ${REPO} . \
+ &&     git checkout ${BRANCH} \
 
 # remove ssh key for safety
  &&     rm -rf /root/.ssh/id_rsa.pub \
