@@ -3,6 +3,7 @@ FROM    alpine:3.15
 
 # build args
 ARG     REPO=${REPO}
+ARG     BRANCH=${BRANCH}
 
 # labels
 LABEL   org.opencontainers.image.authors=twagner
