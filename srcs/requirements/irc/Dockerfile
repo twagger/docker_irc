@@ -50,4 +50,4 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
 
 EXPOSE  6667
 
-CMD     ["irc_server"]
+CMD     ["irc_server", "6667", "pass"]
