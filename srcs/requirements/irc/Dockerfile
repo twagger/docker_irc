@@ -43,6 +43,10 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
  &&     cd /irc \
  &&     git clone ${REPO} . \
 
+# remove ssh key for safety
+ &&     rm -rf /root/.ssh/id_rsa.pub \
+ &&     rm -rf /root/.ssh/id_rsa \
+
 # create server bin and move it to /usr/bin
  &&     make \
  &&     mv ./server /usr/bin/irc_server \
