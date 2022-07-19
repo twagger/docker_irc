@@ -23,7 +23,6 @@ NAME		= irc_server
 ################################################################################
 SRCS		= ./srcs
 IRCCONF		= ./srcs/requirements/irc/conf
-DATABIND	= ~/irc
 SSH			= ~/.ssh
 
 # FLAGS
@@ -41,7 +40,6 @@ ADDRESS		= 127.0.0.1
 # RULES
 ################################################################################
 $(NAME):	
-			sudo $(MKDIR) $(DATABIND)
 			sudo $(CAT) $(SSH)/id_rsa > $(IRCCONF)/id_rsa
 			sudo $(CAT) $(SSH)/id_rsa.pub > $(IRCCONF)/id_rsa.pub
 			$(CD) $(SRCS) && $(DCOMPOSE) $(FLAGENV) $(ENVFILE) $(UP)
@@ -58,7 +56,6 @@ fclean:		clean
 			$(DOCKER) network prune --force
 			$(DOCKER) volume prune --force
 			$(DOCKER) image prune --force
-			sudo $(RMRF) $(DATABIND)
 
 re:			fclean all
 
