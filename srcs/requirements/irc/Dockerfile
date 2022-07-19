@@ -45,7 +45,7 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
 
 # create server bin and move it to /usr/bin
  &&     make \
- &&     mv ./test /usr/bin/irc_server \
+ &&     mv ./server /usr/bin/irc_server \
  &&     chmod +x /usr/bin/irc_server
 
 EXPOSE  6667
