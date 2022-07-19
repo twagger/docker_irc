@@ -20,7 +20,6 @@ RUN     apk update && apk upgrade && apk add --update --no-cache \
 
 # permissions for tshark
  &&     chown root:root /usr/bin/dumpcap \
- &&     chmod +x /usr/bin/dumpcap \
 
 # create ssh folders
  &&     mkdir /root/.ssh/ \
@@ -30,7 +29,7 @@ RUN     apk update && apk upgrade && apk add --update --no-cache \
 COPY    conf/id_rsa.pub    /root/.ssh/id_rsa.pub
 COPY    conf/id_rsa        /root/.ssh/id_rsa
 
-# add keys to known hosts
+# add github to known hosts
 RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \ 
 
 # create dest folder for irc server source files
@@ -38,7 +37,7 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
 
 # modify ssh keys rights
  &&     chmod 600 /root/.ssh/id_rsa \
- &&     chmod 600 /root/.ssh/id_rsa.pub \
+ &&     chmod 644 /root/.ssh/id_rsa.pub \
 
 # clone server project from github
  &&     cd /irc \

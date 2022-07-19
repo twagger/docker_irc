@@ -11,18 +11,8 @@ services:
     container_name: irc
     restart: always
     ports: ['6667:6667']
-    volumes: ['irc_data:/irc']
     networks: ['irc_network']
 
 networks:
   irc_network:
     name: irc_network
-
-volumes:
-  irc_data:
-    driver: local
-    driver_opts:
-      device: ${HOME}
-      type: volume
-      o: bind
-

@@ -24,7 +24,7 @@ NAME		= irc_server
 SRCS		= ./srcs
 IRCCONF		= ./srcs/requirements/irc/conf
 DATABIND	= ~/irc
-SSH		= ~/.ssh
+SSH			= ~/.ssh
 
 # FLAGS
 ################################################################################
