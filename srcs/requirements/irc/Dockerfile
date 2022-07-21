@@ -17,6 +17,7 @@ RUN     apk update && apk upgrade && apk add --update --no-cache \
             git \
             tshark \
             openssh \
+            ngircd \
  &&     rm -f /var/cache/apk/* \
 
 # permissions for tshark
@@ -56,4 +57,5 @@ RUN    ssh-keyscan github.com > /root/.ssh/known_hosts \
 
 EXPOSE  6667
 
-CMD     ["irc_server", "6667", "pass"]
+#CMD     ["irc_server", "6667", "pass"]
+CMD     ["ngircd", "-n"]
